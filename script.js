@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       description: description,
     };
 
-    fetch("/send-inquiry", {
+    fetch("https://arjunrenvon.pythonanywhere.com/send-inquiry", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
