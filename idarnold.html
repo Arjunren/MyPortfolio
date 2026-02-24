@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 flex items-center justify-center min-h-screen">
+
+    <div id="card" class="relative w-80 h-96 rounded-xl p-px bg-gray-900 backdrop-blur-md text-gray-800 overflow-hidden shadow-lg cursor-pointer">
+        
+        <div id="spotlight" class="pointer-events-none blur-3xl rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-300 size-60 absolute z-0 transition-opacity duration-500 opacity-0"></div>
+
+        <div class="relative z-10 bg-gray-900/75 p-6 h-full w-full rounded-[11px] flex flex-col items-center justify-center text-center">
+            <img src="../static/Arnold.png" alt="Profile Avatar" class="w-24 h-24 rounded-full shadow-md my-4" />
+            
+            <h2 class="text-2xl font-bold text-white mb-1">Arnold F Grande</h2>
+            
+            <p class="text-sm text-blue-500 font-semibold">Project Manager</p>
+            <p class="text-xs text-blue-500/70 mb-4">Datatelcom System Communication</p>
+
+            <p class="text-sm text-slate-400 mb-4 px-4 text-justify">
+                Leading innovations in scalable systems and solving real-world telecommunication problems.
+            </p>
+            
+            <div class="flex space-x-5 mb-4 text-slate-400">
+                <a href="https://datatelcom.pythonanywhere.com" target="_blank" class="hover:-translate-y-0.5 hover:text-indigo-400 transition">
+                    <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"></path>
+                    </svg>
+                </a>
+
+                <a href="tel:+639179241546" class="hover:-translate-y-0.5 hover:text-indigo-400 transition">
+                    <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.273-3.973-6.869-6.869l1.293-.97c.362-.271.527-.733.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
+                    </svg>
+                </a>
+                
+                <a href="mailto:datatelcom.customercare@gmail.com" class="hover:-translate-y-0.5 hover:text-indigo-400 transition">
+                    <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+        const spotlight = document.getElementById('spotlight');
+
+        card.addEventListener('mousemove', (e) => {
+            const bounds = card.getBoundingClientRect();
+            const x = e.clientX - bounds.left;
+            const y = e.clientY - bounds.top;
+            
+            spotlight.style.left = `${x - 120}px`;
+            spotlight.style.top = `${y - 120}px`;
+        });
+
+        card.addEventListener('mouseenter', () => {
+            spotlight.classList.remove('opacity-0');
+            spotlight.classList.add('opacity-100');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            spotlight.classList.remove('opacity-100');
+            spotlight.classList.add('opacity-0');
+        });
+    </script>
+</body>
+</html>
